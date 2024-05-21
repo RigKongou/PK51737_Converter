@@ -29,6 +29,10 @@ def read_xml(file_path):
     tree = ET.parse(file_path)
     return tree.getroot()
 
+def write_xml(data, file_path):
+    tree = ET.ElementTree(data)
+    tree.write(file_path)
+
 if __name__ == "__main__":
     input_file, output_file = parse_args()
     print(f"Input file: {input_file}, Output file: {output_file}")
