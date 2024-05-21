@@ -1,6 +1,7 @@
 import sys
 import json
 import yaml
+import xml.etree.ElementTree as ET
 
 def parse_args():
     if len(sys.argv) != 3:
@@ -23,6 +24,10 @@ def read_yaml(file_path):
 def write_yaml(data, file_path):
     with open(file_path, 'w') as file:
         yaml.dump(data, file, default_flow_style=False)
+
+def read_xml(file_path):
+    tree = ET.parse(file_path)
+    return tree.getroot()
 
 if __name__ == "__main__":
     input_file, output_file = parse_args()
