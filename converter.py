@@ -1,5 +1,6 @@
 import sys
 import json
+import yaml
 
 def parse_args():
     if len(sys.argv) != 3:
@@ -14,6 +15,10 @@ def read_json(file_path):
 def write_json(data, file_path):
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
+
+def read_yaml(file_path):
+    with open(file_path, 'r') as file:
+        return yaml.safe_load(file)
 
 if __name__ == "__main__":
     input_file, output_file = parse_args()
